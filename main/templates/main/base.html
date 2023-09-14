@@ -1,0 +1,112 @@
+<!-- Base Template for Inheritance -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+        .sidenav {
+            height:100%;
+            width:160px;
+            position: fixed;
+            z-index: 1;
+            top:0;
+            left:0;
+            background-color:#111;
+            overflow-x: hidden;
+            padding-top:20px;
+        }
+        
+        .sidenav a {
+            padding:6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+
+        .sidenav p {
+            padding:6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+        
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        
+        .main {
+            margin-left: 160px;
+            padding: 0px 10px;
+        }
+    </style>
+
+    <title>
+        {% block title %}Michael's Homepage{% endblock %}
+    </title>
+
+    <!-- Bootstrap v4.5 CSS -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+        crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS file -->
+    <link 
+        rel="stylesheet" 
+        ref="../../static/style.css"
+    /> 
+
+</head>
+
+
+<body>
+
+    <!-- Navigation Sidebar -->
+    <div class="sidenav">
+        <p>To-do List</p>
+        <a href="/home/">Home</a>
+        <a href="/create">Create</a>
+        <a href="/view">View</a>
+    </div>
+
+    <div id="content", name="content", class="main">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <!-- <h1 class="mt-2">My Site</h1> -->
+                <hr class="mt-0 mt-4">
+                    <!-- Contact Block -->
+                    {% block content %}
+                    {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap v4.5 JS -->
+    <script 
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" 
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" 
+        crossorigin="anonymous">
+    </script>
+
+</body>
+
+
+</html>

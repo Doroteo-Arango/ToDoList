@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}Create New List{% endblock %}
+
+
+<!-- Only show content block if logged in -->
+{% if user.is_authenticated %}
+    {% block content %}
+    <h3>Create Page</h3>
+
+    <!-- Create form for creating a new list -->
+    <form method="post" action="/create/" class="form-group">
+        <!-- Every time we create a new form, we must include the CSRF token -->
+        <!-- Something to do with security/verification/validation probably -->
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <!-- Submit button -->
+                <button type="submit", name="save", class="btn btn-success">Enter name of new list</button>
+            </div>
+            <!-- Pass in a variable called form & Django will generate the HTML for this form -->
+            <!-- {form.name} to only show name textbox -->
+            <!-- {form.as_table) for table layout (DEFAULT)}-->
+            <!-- {form.as_p) for vertical layout}-->
+            <!-- {form.as_ul) for vertical, bullet-pointed layout}-->
+            {{form.name}}
+        </div>
+        
+    </form>
+    {% endblock %}
+{% else %}
+    <p>Login <a href="/login">Here</a><p>
+{% endif %}
